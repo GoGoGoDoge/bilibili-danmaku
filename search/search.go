@@ -29,7 +29,8 @@ func InitEngineWithFiles(filename string) *TitleSearcher {
 	titleSearcher := &TitleSearcher{searcher: &riot.Engine{}, titleAids: make(map[string]int64), reexp: regexp.MustCompile("[0-9]+")}
 
 	titleSearcher.searcher.Init(types.EngineOpts{
-		Using: 3,
+		Using:     3,
+		NumShards: 2,
 		// IDOnly:        true,
 		GseDict: "dictionary.txt",
 	})
